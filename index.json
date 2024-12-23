@@ -1,0 +1,68 @@
+{
+    "title": "Shibi Audio Archive",
+    "maintainer": {
+        "name": "Sonkoly Bence",
+        "email": "shibibence@gmail.com",
+        "website": "https://github.com/shie1"
+    },
+    "description": "A Shibi Audio Archive tartalmazza az összes zenei projektet amit készítettem, többek között a \"luvzee\", \"mosópor\" és \"Shie1bi\" előadói név alatt megtalálható alkotásokat.",
+    "legalDisclaimer": "A zenék letöltése és használata kizárólag személyes felhasználásra engedélyezett. A szerzői jogokat a szerzők fenntartják.",
+    "artists": [
+        {
+            "name": "mosópor",
+            "avatar": "mosopor/avatar-500x500.jpg",
+            "directory": "mosopor",
+            "releases": [
+                {
+                    "title": "észrevétlen",
+                    "directory": "mosopor/eszrevetlen",
+                    "type": "album",
+                    "cover": "mosopor/eszrevetlen/folder.jpg",
+                    "date": "2023-12-30"
+                },
+                {
+                    "title": "megint kihasznállak",
+                    "directory": "mosopor/megint-kihasznallak",
+                    "type": "single",
+                    "cover": "mosopor/megint-kihasznallak/folder.jpg",
+                    "date": "2024-03-29"
+                },
+                {
+                    "title": "Tovább",
+                    "directory": "mosopor/tovabb",
+                    "type": "single",
+                    "cover": "mosopor/tovabb/folder.jpg",
+                    "date": "2024-08-22"
+                }
+            ]
+        },
+        {
+            "name": "luvzee",
+            "avatar": "luvzee/avatar-500x500.jpg",
+            "directory": "luvzee",
+            "releases": [
+                {
+                    "title": "tél+",
+                    "directory": "luvzee/telplus",
+                    "type": "album",
+                    "cover": "luvzee/telplus/folder.jpg",
+                    "date": "2023-05-27"
+                },
+                {
+                    "title": "vakságból kiérve",
+                    "directory": "luvzee/vaksagbol-kierve",
+                    "type": "album",
+                    "cover": "luvzee/vaksagbol-kierve/folder.jpg",
+                    "date": "2023-04-09"
+                },
+                {
+                    "title": "mindenért a hibás",
+                    "directory": "luvzee/mindenert-a-hibas",
+                    "type": "album",
+                    "cover": "luvzee/mindenert-a-hibas/folder.jpg",
+                    "date": "2024-07-31"
+                }
+            ]
+        }
+    ]
+}
