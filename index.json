@@ -56,6 +56,13 @@
                     "date": "2023-04-09"
                 },
                 {
+                    "title": "egy dolog rémiszt",
+                    "directory": "luvzee/egy-dolog-remiszt",
+                    "type": "single",
+                    "cover": "luvzee/egy-dolog-remiszt/folder.jpg",
+                    "date": "2023-12-28"
+                },
+                {
                     "title": "mindenért a hibás",
                     "directory": "luvzee/mindenert-a-hibas",
                     "type": "album",
