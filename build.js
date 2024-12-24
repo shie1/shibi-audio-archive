@@ -1,5 +1,7 @@
 const fs = require('fs');
 const musicMetadata = require('music-metadata');
+const FFMpeg = require("fluent-ffmpeg");
+
 // take arg "--test", if present
 const test = process.argv.includes('--test');
 
@@ -72,9 +74,10 @@ const buildIndexes = async () => {
             // release level index
             const tracks = [];
 
-            for (const track of fs.readdirSync(`${release.directory}`).filter(file => file.endsWith('.m4a'))) {
+            for (const track of fs.readdirSync(`${release.directory}`).filter(file => file.endsWith('.flac'))) {
                 console.log(`[T] Parsing track metadata: ${track}`);
                 const trackPath = `${release.directory}/${track}`;
+                const newTrackPath = `${release.directory}/${track.replace(/.flac$/, '.m4a')}`;
                 const trackMeta = await meta.parseFile(trackPath);
                 tracks.push({
                     title: trackMeta.common.title,
@@ -83,6 +86,30 @@ const buildIndexes = async () => {
                     album: trackMeta.common.album,
                     trackNo: trackMeta.common.track.no,
                     path: trackPath
+                });
+                console.log("[C] Convering track to AAC for HTTP streaming: ", track);
+                // use async/await to wait for ffmpeg to finish
+                await new Promise((resolve, reject) => {
+                    // keep id3 tags, 320k bitrate, AAC codec, m4a container
+                    FFMpeg(trackPath)
+                        .outputOptions([
+                            '-vn', // no video
+                            '-c:a aac',
+                            '-b:a 320k',
+                            '-id3v2_version 3',
+                            '-write_id3v1 1'
+                        ])
+                        .on('end', () => {
+                            console.log("[D] Deleting flac from build: ", track);
+                            // delete flac file
+                            fs.rmSync("build/" + trackPath);
+                            resolve();
+                        })
+                        .on('error', (err, stdout, stderr) => {
+                            console.error(stderr);
+                            reject(err);
+                        })
+                        .save("build/" + newTrackPath);
                 });
             }
 
