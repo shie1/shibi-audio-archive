@@ -1,15 +1,18 @@
 {
   "name": "shibi-audio-archive",
   "version": "1.0.0",
+  "main": "server.js",
   "scripts": {
     "test": "node build.js --test",
-    "build": "node build.js"
+    "build": "node build.js",
+    "serve": "node server.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "description": "",
   "dependencies": {
+    "express": "^4.21.2",
     "music-metadata": "^10.6.4"
   }
 }

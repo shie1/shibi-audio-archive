@@ -1,6 +1,5 @@
 const fs = require('fs');
 const musicMetadata = require('music-metadata');
-
 // take arg "--test", if present
 const test = process.argv.includes('--test');
 
@@ -40,7 +39,7 @@ const buildIndexes = async () => {
         // 1 second wait
         // check if artist dir exists
         if (!fs.existsSync(`${artist.directory}`)) {
-            throw new Error(`Artist dir not found: ${artist}`);
+            throw new Error(`[E] Artist dir not found: ${artist}`);
         }
 
         if (!test) {
@@ -66,14 +65,14 @@ const buildIndexes = async () => {
 
             // check if release dir exists
             if (!fs.existsSync(`${release.directory}`)) {
-                throw new Error(`Release dir not found: ${release.directory}`);
+                throw new Error(`[E] Release dir not found: ${release.directory}`);
             }
 
             // don't need to copy release dir, it's already copied
             // release level index
             const tracks = [];
 
-            for (const track of fs.readdirSync(`${release.directory}`).filter(file => file.endsWith('.flac'))) {
+            for (const track of fs.readdirSync(`${release.directory}`).filter(file => file.endsWith('.m4a'))) {
                 console.log(`[T] Parsing track metadata: ${track}`);
                 const trackPath = `${release.directory}/${track}`;
                 const trackMeta = await meta.parseFile(trackPath);
@@ -83,7 +82,7 @@ const buildIndexes = async () => {
                     date: trackMeta.common.date,
                     album: trackMeta.common.album,
                     trackNo: trackMeta.common.track.no,
-
+                    path: trackPath
                 });
             }
 
@@ -104,8 +103,8 @@ const buildIndexes = async () => {
 }
 
 buildIndexes().then(() => {
-    console.log("Indexes built successfully!");
+    console.log("Library built successfully!");
 }).catch(err => {
-    console.error("Error building indexes: \n", err);
+    console.error("Error building library: \n", err);
     process.exit(1);
 });
