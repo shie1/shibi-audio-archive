@@ -9,6 +9,10 @@ if (!fs.existsSync("build")) {
     process.exit(1);
 }
 
+// take -p or --port arg
+const portIndex = process.argv.indexOf('-p') !== -1 ? process.argv.indexOf('-p') : process.argv.indexOf('--port');
+const port = portIndex !== -1 ? process.argv[portIndex + 1] : 3000;
+
 // each folder has an index.json file make index.html redirect to index.json
 app.get("*", (req, res) => {
     const path = req.path.slice(1).split("/");
@@ -55,6 +59,6 @@ app.get("*", (req, res) => {
     return res.sendFile(`build/${artist}/index.json`, { root: __dirname });
 });
 
-app.listen(3000, () => {
-    console.log("Server is running on port 3000");
+app.listen(port, () => {
+    console.log(`Server is running on port ${port}`);
 });
