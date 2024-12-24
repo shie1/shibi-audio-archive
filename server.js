@@ -36,7 +36,7 @@ app.get("*", (req, res) => {
     }
 
     // if file is defined, check if file exists
-    if (file && !fs.existsSync(`build/${artist}/${release}/${file}`)) {
+    if (file && (!fs.existsSync(`build/${artist}/${release}/${file}`) && !fs.existsSync(`build/${artist}/${release}/${file}.m4a`))) {
         return res.status(404).send("Not found");
     }
 
@@ -47,6 +47,12 @@ app.get("*", (req, res) => {
         } else if (file.endsWith(".m4a")) {
             //stream aac file
             return res.sendFile(`build/${artist}/${release}/${file}`, { root: __dirname });
+        } else if (
+            !file.includes(".") && fs.existsSync(`build/${artist}/${release}/${file}.m4a`)
+        ) {
+            const releaseIndex = JSON.parse(fs.readFileSync(`build/${artist}/${release}/index.json`, 'utf8'));
+            const trackIndex = releaseIndex.tracks.find(track => track.path === `${releaseIndex.directory}/${file}.m4a`);
+            return res.json(trackIndex, null, 4);
         }
     }
 

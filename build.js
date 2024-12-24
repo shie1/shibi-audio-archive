@@ -53,7 +53,8 @@ const buildIndexes = async () => {
         const artistIndex = {
             name: artist.name,
             avatar: artist.avatar,
-            releases: artist.releases
+            releases: artist.releases,
+            directory: artist.directory
         }
         if (!test) {
             // write artist index
@@ -85,7 +86,7 @@ const buildIndexes = async () => {
                     date: trackMeta.common.date,
                     album: trackMeta.common.album,
                     trackNo: trackMeta.common.track.no,
-                    path: trackPath
+                    path: newTrackPath
                 });
                 console.log("[C] Convering track to AAC for HTTP streaming: ", track);
                 // use async/await to wait for ffmpeg to finish
@@ -118,6 +119,7 @@ const buildIndexes = async () => {
                 type: release.type,
                 cover: release.cover,
                 date: release.date,
+                directory: release.directory,
                 tracks: tracks
             }
 
