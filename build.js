@@ -86,6 +86,7 @@ const buildIndexes = async () => {
                     date: trackMeta.common.date,
                     album: trackMeta.common.album,
                     trackNo: trackMeta.common.track.no,
+                    cover: release.cover,
                     path: newTrackPath
                 });
                 console.log("[C] Convering track to AAC for HTTP streaming: ", track);

@@ -3,6 +3,12 @@ const fs = require("fs");
 
 const app = express();
 
+//cors allow all
+app.use((req, res, next) => {
+    res.header("Access-Control-Allow-Origin", "*");
+    next();
+});
+
 // if no build folder
 if (!fs.existsSync("build")) {
     console.error("Please build the library first!");
@@ -38,6 +44,10 @@ app.get("*", (req, res) => {
     // if file is defined, check if file exists
     if (file && (!fs.existsSync(`build/${artist}/${release}/${file}`) && !fs.existsSync(`build/${artist}/${release}/${file}.m4a`))) {
         return res.status(404).send("Not found");
+    }
+
+    if (release && release.endsWith(".jpg")) {
+        return res.sendFile(`build/${artist}/${release}`, { root: __dirname });
     }
 
     if (file) {
