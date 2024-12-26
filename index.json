@@ -33,6 +33,13 @@
                     "type": "single",
                     "cover": "mosopor/tovabb/folder.jpg",
                     "date": "2024-08-22"
+                },
+                {
+                    "title": "sírásó",
+                    "directory": "mosopor/siraso",
+                    "type": "single",
+                    "cover": "mosopor/siraso/folder.jpg",
+                    "date": "2024-05-11"
                 }
             ]
         },
@@ -68,6 +75,20 @@
                     "type": "album",
                     "cover": "luvzee/mindenert-a-hibas/folder.jpg",
                     "date": "2024-07-31"
+                }
+            ]
+        },
+        {
+            "name": "fuckyoufuckyoufuckk",
+            "avatar": "fuckyoufuckyoufuckk/avatar-500x500.jpg",
+            "directory": "fuckyoufuckyoufuckk",
+            "releases": [
+                {
+                    "title": "Noise",
+                    "directory": "fuckyoufuckyoufuckk/noise",
+                    "type": "single",
+                    "cover": "fuckyoufuckyoufuckk/noise/folder.jpg",
+                    "date": "2021-07-08"
                 }
             ]
         }
