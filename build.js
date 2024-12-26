@@ -87,6 +87,7 @@ const buildIndexes = async () => {
                     album: trackMeta.common.album,
                     trackNo: trackMeta.common.track.no,
                     cover: release.cover,
+                    directory: newTrackPath.replace(/.m4a$/, ''),
                     path: newTrackPath
                 });
                 console.log("[C] Convering track to AAC for HTTP streaming: ", track);
