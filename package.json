@@ -5,7 +5,8 @@
   "scripts": {
     "test": "node build.js --test",
     "build": "node build.js",
-    "serve": "node ."
+    "serve": "node .",
+    "readme": "node generateReadme.js"
   },
   "keywords": [],
   "author": "",

@@ -75,6 +75,13 @@
                     "type": "album",
                     "cover": "luvzee/mindenert-a-hibas/folder.jpg",
                     "date": "2024-07-31"
+                },
+                {
+                    "title": "elvetemült munkafétis",
+                    "directory": "luvzee/elvetemult-munkafetis",
+                    "type": "single",
+                    "cover": "luvzee/elvetemult-munkafetis/folder.jpg",
+                    "date": "2023-09-24"
                 }
             ]
         },

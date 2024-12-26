@@ -18,11 +18,19 @@ mosópor
 |   |--- újév/vége
 |--- megint kihasznállak
 |   |--- megint kihasznállak
-|--- Tovább
-|   |--- Tovább
 |--- sírásó
 |   |--- sírásó
+|--- Tovább
+|   |--- Tovább
 luvzee
+|--- vakságból kiérve
+|   |--- el:visel
+|   |--- kinő majd megint
+|   |--- vakságból kiérve
+|   |--- nem tudom felfogni
+|   |--- talent:talált
+|   |--- megfelelési kényszer
+|   |--- kanapé
 |--- tél+
 |   |--- angyal
 |   |--- angyal [Weaver edit]
@@ -37,14 +45,8 @@ luvzee
 |   |--- gondolat
 |   |--- gondolat+
 |   |--- a kosz
-|--- vakságból kiérve
-|   |--- el:visel
-|   |--- kinő majd megint
-|   |--- vakságból kiérve
-|   |--- nem tudom felfogni
-|   |--- talent:talált
-|   |--- megfelelési kényszer
-|   |--- kanapé
+|--- elvetemült munkafétis
+|   |--- elvetemült munkafétis (ft. Noor)
 |--- egy dolog rémiszt
 |   |--- egy dolog rémiszt
 |--- mindenért a hibás

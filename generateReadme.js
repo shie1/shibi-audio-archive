@@ -1,7 +1,6 @@
 const fs = require('fs');
 const musicMetadata = require('music-metadata');
 
-
 const generateReadme = async () => {
     const meta = await musicMetadata.loadMusicMetadata();
     const mainIndex = JSON.parse(fs.readFileSync('index.json', 'utf8'));
@@ -9,9 +8,11 @@ const generateReadme = async () => {
 
     const artists = await Promise.all(mainIndex.artists.map(async artist => {
         const artistName = artist.name;
-        const artistIndex = JSON.parse(fs.readFileSync(`build/${artist.directory}/index.json`, 'utf8'));
         const releases = []
-        for (let release of artistIndex.releases) {
+        artist.releases.sort((a, b) => {
+            return new Date(a.date) - new Date(b.date);
+        });
+        for (let release of artist.releases) {
             const releaseTitle = release.title;
             const tracks = []
             for (const track of fs.readdirSync(`${release.directory}`).filter(file => file.endsWith('.flac'))) {
